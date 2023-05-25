@@ -57,17 +57,20 @@
 	>
 		<div
 			x-data="articleCard"
-			class="relative bg-white w-81.75 inset-0 mx-auto my-18.5 rounded-2.5 overflow-hidden shadow-2xl shadow-light-gray-blue"
+			class="relative bg-white w-81.75 inset-0 mx-auto my-18.5 rounded-2.5 overflow-visible shadow-2xl shadow-light-gray-blue"
+			md="flex flex-row items-stretch w-182.5 h-70"
 		>
 			<img
 				src="images/drawers.jpg"
 				alt=""
-				class="h-50 w-full object-cover object-center"
+				class="h-50 w-full object-cover object-center rounded-t-2.5"
+				md="h-auto w-71.25 object-left rounded-l-2.5"
 			/>
-			<div class="px-8 pb-3">
+			<div class="px-8 pb-3" md="px-10">
 				<div class="pt-8.75">
 					<h1
 						class="text-4 tracking-0.05 leading-6 font-700 text-dark-gray-blue"
+						md="text-5 leading-6.5"
 					>
 						Shift the overall look and feel by adding these
 						wonderful touches to furniture in your home
@@ -80,7 +83,10 @@
 					</p>
 				</div>
 
-				<div class="mt-8.25 flex justify-between items-center">
+				<div
+					class="mt-8.25 flex justify-between items-center"
+					md="mt-5.5"
+				>
 					<div class="flex flex-row items-center gap-4">
 						<img
 							src="images/avatar-michelle.jpg"
@@ -105,13 +111,14 @@
 				</div>
 			</div>
 			<div
-				class="absolute flex items-center justify-between bottom-0 left-0 w-full bg-dark-gray-blue px-8 py-4"
-				x-show="openShare"
+				class="absolute flex items-center justify-between bottom-0 w-full bg-dark-gray-blue px-8 py-4 rounded-b-2.5"
+				md="rounded-2.5 w-62 justify-center -right-17 bottom-24 py-4.5"
 				@click.outside="openShare = false"
+				x-show="openShare"
 				x-transition
 				x-cloak
 			>
-				<div class="flex gap-4 items-center">
+				<div class="flex gap-4 items-center z-2">
 					<span class="text-gray-blue tracking-1.25">SHARE</span>
 					<div class="flex items-center gap-4">
 						<img
@@ -133,10 +140,15 @@
 				</div>
 				<div
 					class="bg-[url(images/icon-share-white.svg)] bg-desaturated-blue w-8 h-8 bg-no-repeat bg-center rounded-full cursor-pointer"
+					md="hidden"
 					hover="opacity-70"
 					tabindex="0"
 					@keyup.enter="openShare = false"
 					@click="openShare = false"
+				></div>
+				<div
+					class="absolute mx-auto -bottom-2"
+					md="rotate-45 w-4 h-4 bg-dark-gray-blue z-1"
 				></div>
 			</div>
 		</div>
