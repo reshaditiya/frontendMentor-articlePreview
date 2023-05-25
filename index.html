@@ -40,20 +40,28 @@
     </style>
 
     <script src="//unpkg.com/alpinejs" defer></script>
+    <script>
+      document.addEventListener("alpine:init", () => {
+        Alpine.data("articleCard", () => ({
+          openShare: false,
+        }));
+      });
+    </script>
   </head>
   <body
     class="font-manrope bg-light-gray-blue text-3.25 font-500 tracking-0.03 text-desaturated-blue"
     un-cloak
   >
     <div
-      class="bg-white w-81.75 inset-0 mx-auto my-18.5 rounded-2 overflow-hidden"
+      x-data="articleCard"
+      class="relative bg-white w-81.75 inset-0 mx-auto my-18.5 rounded-2.5 overflow-hidden"
     >
       <img
         src="images/drawers.jpg"
         alt=""
         class="h-50 w-full object-cover object-center"
       />
-      <div class="px-8 pb-5">
+      <div class="px-8 pb-3">
         <div class="pt-8.75">
           <h1
             class="text-4 tracking-0.05 leading-6 font-700 text-dark-gray-blue"
@@ -83,17 +91,35 @@
             </div>
           </div>
           <div
-            class="bg-[url(images/icon-share.svg)] bg-light-gray-blue w-8 h-8 bg-no-repeat bg-center rounded-full"
+            class="bg-[url(images/icon-share.svg)] bg-light-gray-blue w-8 h-8 bg-no-repeat bg-center rounded-full cursor-pointer"
+            hover="bg-gray-blue"
+            @click="openShare = true"
           ></div>
         </div>
-        <div class="bg-dark-gray-blue hidden">
-          <span>Share</span>
-          <div>
-            <img src="images/icon-facebook.svg" alt="" />
-            <img src="images/icon-twitter.svg" alt="" />
-            <img src="images/icon-pinterest.svg" alt="" />
+      </div>
+      <div
+        class="absolute flex items-center justify-between bottom-0 left-0 w-full bg-dark-gray-blue px-8 py-4"
+        x-show="openShare"
+        @click.outside="openShare = false"
+        x-transition
+      >
+        <div class="flex gap-4 items-center">
+          <span class="text-gray-blue tracking-1.25">SHARE</span>
+          <div class="flex items-center gap-4">
+            <img src="images/icon-facebook.svg" alt="" class="cursor-pointer" />
+            <img src="images/icon-twitter.svg" alt="" class="cursor-pointer" />
+            <img
+              src="images/icon-pinterest.svg"
+              alt=""
+              class="cursor-pointer"
+            />
           </div>
         </div>
+        <div
+          class="bg-[url(images/icon-share-white.svg)] bg-desaturated-blue w-8 h-8 bg-no-repeat bg-center rounded-full cursor-pointer"
+          hover="opacity-50"
+          @click="openShare = false"
+        ></div>
       </div>
     </div>
   </body>
