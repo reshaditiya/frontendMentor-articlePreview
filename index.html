@@ -1,135 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="./images/favicon-32x32.png"
-    />
-    <title>Frontend Mentor | Article preview component</title>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="./images/favicon-32x32.png"
+		/>
+		<title>Frontend Mentor | Article preview component</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/attributify.global.js"></script>
-    <script>
-      const config = window.__unocss_runtime.uno.config;
-      const configColor = config.theme.colors;
-      const configFamily = config.theme.fontFamily;
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdn.jsdelivr.net/npm/@unocss/reset/tailwind.min.css"
+		/>
+		<script src="https://cdn.jsdelivr.net/npm/@unocss/runtime/attributify.global.js"></script>
+		<script>
+			const config = window.__unocss_runtime.uno.config
+			const configColor = config.theme.colors
+			const configFamily = config.theme.fontFamily
 
-      configColor.darkGrayBlue = "#48556a";
-      configColor.desaturatedBlue = "#6d7f97";
-      configColor.grayBlue = "#9eafc2";
-      configColor.lightGrayBlue = "#ecf2f8";
-      configFamily.manrope = '"Manrope",' + configFamily.sans;
-    </script>
-    <style>
-      [un-cloak] {
-        display: none;
-      }
-      [x-cloak] {
-        display: none !important;
-      }
-    </style>
+			configColor.darkGrayBlue = "#48556a"
+			configColor.desaturatedBlue = "#6d7f97"
+			configColor.grayBlue = "#9eafc2"
+			configColor.lightGrayBlue = "#ecf2f8"
+			configFamily.manrope = '"Manrope",' + configFamily.sans
+		</script>
+		<style>
+			[un-cloak] {
+				display: none;
+			}
+			[x-cloak] {
+				display: none !important;
+			}
+		</style>
 
-    <script src="//unpkg.com/alpinejs" defer></script>
-    <script>
-      document.addEventListener("alpine:init", () => {
-        Alpine.data("articleCard", () => ({
-          openShare: false,
-        }));
-      });
-    </script>
-  </head>
-  <body
-    class="font-manrope bg-light-gray-blue text-3.25 font-500 tracking-0.03 text-desaturated-blue"
-    un-cloak
-  >
-    <div
-      x-data="articleCard"
-      class="relative bg-white w-81.75 inset-0 mx-auto my-18.5 rounded-2.5 overflow-hidden shadow-2xl shadow-light-gray-blue"
-    >
-      <img
-        src="images/drawers.jpg"
-        alt=""
-        class="h-50 w-full object-cover object-center"
-      />
-      <div class="px-8 pb-3">
-        <div class="pt-8.75">
-          <h1
-            class="text-4 tracking-0.05 leading-6 font-700 text-dark-gray-blue"
-          >
-            Shift the overall look and feel by adding these wonderful touches to
-            furniture in your home
-          </h1>
-          <p class="mt-3.5">
-            Ever been in a room and felt like something was missing? Perhaps it
-            felt slightly bare and uninviting. I’ve got some simple tips to help
-            you make any room feel complete.
-          </p>
-        </div>
+		<script src="//unpkg.com/alpinejs" defer></script>
+		<script>
+			document.addEventListener("alpine:init", () => {
+				Alpine.data("articleCard", () => ({
+					openShare: false,
+				}))
+			})
+		</script>
+	</head>
+	<body
+		class="font-manrope bg-light-gray-blue text-3.25 font-500 tracking-0.03 text-desaturated-blue"
+		un-cloak
+	>
+		<div
+			x-data="articleCard"
+			class="relative bg-white w-81.75 inset-0 mx-auto my-18.5 rounded-2.5 overflow-hidden shadow-2xl shadow-light-gray-blue"
+		>
+			<img
+				src="images/drawers.jpg"
+				alt=""
+				class="h-50 w-full object-cover object-center"
+			/>
+			<div class="px-8 pb-3">
+				<div class="pt-8.75">
+					<h1
+						class="text-4 tracking-0.05 leading-6 font-700 text-dark-gray-blue"
+					>
+						Shift the overall look and feel by adding these
+						wonderful touches to furniture in your home
+					</h1>
+					<p class="mt-3.5">
+						Ever been in a room and felt like something was missing?
+						Perhaps it felt slightly bare and uninviting. I’ve got
+						some simple tips to help you make any room feel
+						complete.
+					</p>
+				</div>
 
-        <div class="mt-8.25 flex justify-between items-center">
-          <div class="flex flex-row items-center gap-4">
-            <img
-              src="images/avatar-michelle.jpg"
-              alt=""
-              class="rounded-full w-10.25"
-            />
-            <div class="flex flex-col">
-              <span class="font-700 text-dark-gray-blue"
-                >Michelle Appleton</span
-              >
-              <span>28 Jun 2020</span>
-            </div>
-          </div>
-          <div
-            class="bg-[url(images/icon-share.svg)] bg-light-gray-blue w-8 h-8 bg-no-repeat bg-center rounded-full cursor-pointer"
-            hover="opacity-70"
-            tabindex="0"
-            @keyup.enter="openShare = true"
-            @keyup.esc="openShare = false"
-            @click="openShare = true"
-          ></div>
-        </div>
-      </div>
-      <div
-        class="absolute flex items-center justify-between bottom-0 left-0 w-full bg-dark-gray-blue px-8 py-4"
-        x-show="openShare"
-        @click.outside="openShare = false"
-        x-transition
-        x-cloak
-      >
-        <div class="flex gap-4 items-center">
-          <span class="text-gray-blue tracking-1.25">SHARE</span>
-          <div class="flex items-center gap-4">
-            <img src="images/icon-facebook.svg" alt="" class="cursor-pointer" />
-            <img src="images/icon-twitter.svg" alt="" class="cursor-pointer" />
-            <img
-              src="images/icon-pinterest.svg"
-              alt=""
-              class="cursor-pointer"
-            />
-          </div>
-        </div>
-        <div
-          class="bg-[url(images/icon-share-white.svg)] bg-desaturated-blue w-8 h-8 bg-no-repeat bg-center rounded-full cursor-pointer"
-          hover="opacity-70"
-          tabindex="0"
-          @keyup.enter="openShare = false"
-          @click="openShare = false"
-        ></div>
-      </div>
-    </div>
-  </body>
+				<div class="mt-8.25 flex justify-between items-center">
+					<div class="flex flex-row items-center gap-4">
+						<img
+							src="images/avatar-michelle.jpg"
+							alt=""
+							class="rounded-full w-10.25"
+						/>
+						<div class="flex flex-col">
+							<span class="font-700 text-dark-gray-blue"
+								>Michelle Appleton</span
+							>
+							<span>28 Jun 2020</span>
+						</div>
+					</div>
+					<div
+						class="bg-[url(images/icon-share.svg)] bg-light-gray-blue w-8 h-8 bg-no-repeat bg-center rounded-full cursor-pointer"
+						hover="opacity-70"
+						tabindex="0"
+						@keyup.enter="openShare = true"
+						@keyup.esc="openShare = false"
+						@click="openShare = true"
+					></div>
+				</div>
+			</div>
+			<div
+				class="absolute flex items-center justify-between bottom-0 left-0 w-full bg-dark-gray-blue px-8 py-4"
+				x-show="openShare"
+				@click.outside="openShare = false"
+				x-transition
+				x-cloak
+			>
+				<div class="flex gap-4 items-center">
+					<span class="text-gray-blue tracking-1.25">SHARE</span>
+					<div class="flex items-center gap-4">
+						<img
+							src="images/icon-facebook.svg"
+							alt=""
+							class="cursor-pointer"
+						/>
+						<img
+							src="images/icon-twitter.svg"
+							alt=""
+							class="cursor-pointer"
+						/>
+						<img
+							src="images/icon-pinterest.svg"
+							alt=""
+							class="cursor-pointer"
+						/>
+					</div>
+				</div>
+				<div
+					class="bg-[url(images/icon-share-white.svg)] bg-desaturated-blue w-8 h-8 bg-no-repeat bg-center rounded-full cursor-pointer"
+					hover="opacity-70"
+					tabindex="0"
+					@keyup.enter="openShare = false"
+					@click="openShare = false"
+				></div>
+			</div>
+		</div>
+	</body>
 </html>
