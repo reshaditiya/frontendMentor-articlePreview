@@ -37,6 +37,9 @@
       [un-cloak] {
         display: none;
       }
+      [x-cloak] {
+        display: none !important;
+      }
     </style>
 
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -105,6 +108,7 @@
         x-show="openShare"
         @click.outside="openShare = false"
         x-transition
+        x-cloak
       >
         <div class="flex gap-4 items-center">
           <span class="text-gray-blue tracking-1.25">SHARE</span>
